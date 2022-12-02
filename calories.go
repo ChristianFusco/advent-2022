@@ -12,7 +12,7 @@ func getCalorieCounts() []int {
 	dat, err := os.ReadFile("Calories.txt")
 	check(err)
 
-	elves := strings.Split(string(dat), "\n\n")
+	elves := strings.Split(strings.ReplaceAll(string(dat), "\r\n", "\n"), "\n\n")
 
 	var calorieCounts []int
 	for _, elf := range elves {
